@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- The '/homey.js' script must be included in your settings view to work -->
+    <script type="text/javascript" src="/homey.js" data-origin="settings"></script>
+    <style>
+        fieldset legend, .hy-fieldset:not(.hy-nostyle) legend {
+            font-size: 14px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 data-i18n="settings.title"></h1>
+    <p data-i18n="settings.subtitle"></p>
+    <fieldset>
+        <legend>Niu Account Settings</legend>
+        <div class="field row">
+            <label for="niu_user">Email</label>
+            <input id="niu_user" type="text" value="" />
+        </div>
+        <div class="field row">
+            <label for="niu_pass">Password</label>
+            <input id="niu_pass" type="password" value="" />
+        </div>
+        <div class="field row">
+            <label for="niu_countrycode">CountryCode (like +31 - see: https://countrycode.org/)</label>
+            <input id="niu_countrycode" type="text" value="" />
+        </div>
+        <div class="field row">
+            <label for="niu_token">Token (will be filled after login</label>
+            <input id="niu_token" type="text" value="" disabled />
+        </div>
+    </fieldset>
+    <p id="error" style="color: red;"></p>
+    <p id="loading" style="color: #0000FF;"></p>
+    <p id="success" style="color: #5fd225;"></p>
+    <button id="save" class="right">Save changes</button>
+    <button id="clear" class="left">Clear all</button>
+
+    <script src="./settings.js"></script>
+
+</body>
+
+</html>
