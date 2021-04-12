@@ -1,0 +1,97 @@
+{
+  "id": "com.niu",
+  "version": "0.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#df001f",
+  "name": {
+    "en": "Niu",
+    "nl": "Niu"
+  },
+  "description": {
+    "en": "World’s #1 Smart Electric Scooter.",
+    "nl": "World’s #1 Smart Electric Scooter."
+  },
+  "tags": {
+    "en": ["scooter", "electric", "emission", "green", "rental", "sharing"],
+    "nl": ["scooter", "electric", "emission", "green", "rental", "sharing"]
+  },
+  "category": ["localization"],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.jpg",
+    "small": "/assets/images/small.jpg"
+  },
+  "author": {
+    "name": "Martijn Poppen",
+    "email": "niu@martijnpoppen.nl"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Martijn Poppen",
+        "email": "niu@martijnpoppen.nl"
+      }
+    ],
+    "translators": [
+      {
+        "name": "Martijn Poppen",
+        "email": "niu@martijnpoppen.nl"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "martijnpoppen"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://community.athom.com/t/app-eufy-security/44921"
+  },
+  "source": "https://github.com/martijnpoppen/com.eufylife.security",
+  "homeyCommunityTopicId": 44921,
+  "support": "https://community.athom.com/t/app-eufy-security/44921",
+  "api": {
+    "login": {
+      "method": "put",
+      "path": "/login/"
+    },
+    "settings": {
+      "method": "put",
+      "path": "/settings/"
+    }
+  },
+  "drivers": [
+    {
+      "id": "N1S",
+      "class": "other",
+      "capabilities": [],
+      "energy": {
+        "batteries": ["INTERNAL"]
+      },
+      "name": {
+        "en": "Niu N1S ",
+        "nl": "Niu N1S "
+      },
+      "images": {
+        "large": "drivers/N1S/assets/images/large.jpg",
+        "small": "drivers/N1S/assets/images/small.jpg"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    }
+  ]
+}
