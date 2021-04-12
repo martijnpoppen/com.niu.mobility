@@ -1,6 +1,6 @@
 {
-  "id": "com.niu",
-  "version": "0.0.1",
+  "id": "com.niu.mobility",
+  "version": "1.0.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#df001f",
@@ -13,24 +13,43 @@
     "nl": "World’s #1 Smart Electric Scooter."
   },
   "tags": {
-    "en": ["scooter", "electric", "emission", "green", "rental", "sharing"],
-    "nl": ["scooter", "electric", "emission", "green", "rental", "sharing"]
+    "en": [
+      "scooter",
+      "electric",
+      "emission",
+      "green",
+      "rental",
+      "sharing"
+    ],
+    "nl": [
+      "scooter",
+      "electric",
+      "emission",
+      "green",
+      "rental",
+      "sharing"
+    ]
   },
-  "category": ["localization"],
-  "permissions": ["homey:manager:api", "homey:manager:geolocation"],
+  "category": [
+    "localization"
+  ],
+  "permissions": [
+    "homey:manager:api",
+    "homey:manager:geolocation"
+  ],
   "images": {
     "large": "/assets/images/large.jpg",
     "small": "/assets/images/small.jpg"
   },
   "author": {
     "name": "Martijn Poppen",
-    "email": "niu@martijnpoppen.nl"
+    "email": "martijn@martijnpoppen.nl"
   },
   "contributors": {
     "developers": [
       {
         "name": "Martijn Poppen",
-        "email": "niu@martijnpoppen.nl"
+        "email": "martijn@martijnpoppen.nl"
       }
     ],
     "translators": [
@@ -78,7 +97,9 @@
         "locked"
       ],
       "energy": {
-        "batteries": ["INTERNAL"]
+        "batteries": [
+          "INTERNAL"
+        ]
       },
       "name": {
         "en": "Niu M-Series (MQI)",
@@ -116,7 +137,9 @@
         "locked"
       ],
       "energy": {
-        "batteries": ["INTERNAL"]
+        "batteries": [
+          "INTERNAL"
+        ]
       },
       "name": {
         "en": "Niu N-Series (NQI)",
@@ -154,7 +177,9 @@
         "locked"
       ],
       "energy": {
-        "batteries": ["INTERNAL"]
+        "batteries": [
+          "INTERNAL"
+        ]
       },
       "name": {
         "en": "Niu U-Series (UQI)",
