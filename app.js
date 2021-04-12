@@ -6,6 +6,7 @@ const niuCloudConnector = require("./lib/niu-cloud-connector");
 
 const _settingsKey = `${Homey.manifest.id}.settings`;
 let _niuClient = undefined;
+let _devices = [];
 
 class App extends Homey.App {
   log() {
@@ -102,8 +103,8 @@ class App extends Homey.App {
       _niuClient = await this.setNiuClient(data);
       const token = await _niuClient.createSessionToken({account: settings.USERNAME, password: settings.PASSWORD, countryCode: settings.COUNTRY_CODE});
 
-      if(token && token.result) {
-          settings.TOKEN = token.result;
+      if(token) {
+          settings.TOKEN = token;
       }
 
       this.appSettings = settings;
