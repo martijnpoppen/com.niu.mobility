@@ -6,8 +6,8 @@ let _niuClient = undefined;
 
 module.exports = class mainDriver extends Homey.Driver {
     onInit() {
-        Homey.app.log('[Driver] - init', this.id);
-        Homey.app.log(`[Driver] - version`, Homey.manifest.version);
+        this.homey.app.log('[Driver] - init', this.id);
+        this.homey.app.log(`[Driver] - version`, Homey.manifest.version);
     }
 
     deviceType() {
@@ -15,15 +15,15 @@ module.exports = class mainDriver extends Homey.Driver {
     }
 
     async onPairListDevices( data, callback ) {
-        _niuClient = Homey.app.getNiuClient();
+        _niuClient = this.homey.app.getNiuClient();
 
         _devices = await this.onDeviceListRequest(this.id, _niuClient);
 
-        Homey.app.log(`[Driver] ${this.id} - Found new devices:`, _devices);
+        this.homey.app.log(`[Driver] ${this.id} - Found new devices:`, _devices);
         if(_devices && _devices.length) {
-            callback( null, _devices );
+            return _devices;
         } else {
-            callback( new Error('No devices found. Check the login status of this app inside app-settings') );
+            return new Error('No devices found. Check the login status of this app inside app-settings');
         }
     }
 
@@ -36,12 +36,12 @@ module.exports = class mainDriver extends Homey.Driver {
 
             let pairedDriverDevices = [];
 
-            Homey.app.getDevices().forEach(device => {
+            this.homey.app.getDevices().forEach(device => {
                 const data = device.getData();
                 pairedDriverDevices.push(data.sn);
             })
 
-            Homey.app.log(`[Driver] ${driverId} - pairedDriverDevices`, pairedDriverDevices);
+            this.homey.app.log(`[Driver] ${driverId} - pairedDriverDevices`, pairedDriverDevices);
 
             const results = deviceList.filter(device => !pairedDriverDevices.includes(device.sn))
                 .map((d, i) => ({ 
@@ -54,11 +54,11 @@ module.exports = class mainDriver extends Homey.Driver {
                 }  
             }));
 
-            Homey.app.log('Found devices - ', results);
+            this.homey.app.log('Found devices - ', results);
         
             return Promise.resolve( results );
         } catch(e) {
-            Homey.app.log(e);
+            this.homey.app.log(e);
         }
     }
 }
