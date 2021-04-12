@@ -65,7 +65,7 @@
   },
   "drivers": [
     {
-      "id": "N-Series",
+      "id": "M_SERIES",
       "class": "lock",
       "capabilities": [
         "measure_battery",
@@ -81,12 +81,12 @@
         "batteries": ["INTERNAL"]
       },
       "name": {
-        "en": "Niu N-Series",
-        "nl": "Niu N-Series"
+        "en": "Niu M(QI)-Series",
+        "nl": "Niu M(QI)-Series"
       },
       "images": {
-        "large": "drivers/N-Series/assets/images/large.jpg",
-        "small": "drivers/N-Series/assets/images/small.jpg"
+        "large": "drivers/M_SERIES/assets/images/large.jpg",
+        "small": "drivers/M_SERIES/assets/images/small.jpg"
       },
       "pair": [
         {
@@ -103,81 +103,81 @@
       ]
     },
     {
-        "id": "M-Series",
-        "class": "lock",
-        "capabilities": [
-          "measure_battery",
-          "measure_temperature",
-          "measure_mileage",
-          "measure_consumed_today",
-          "measure_health",
-          "measure_is_charging",
-          "measure_is_home",
-          "locked"
-        ],
-        "energy": {
-          "batteries": ["INTERNAL"]
-        },
-        "name": {
-          "en": "Niu M-Series",
-          "nl": "Niu M-Series"
-        },
-        "images": {
-          "large": "drivers/M-Series/assets/images/large.jpg",
-          "small": "drivers/M-Series/assets/images/small.jpg"
-        },
-        "pair": [
-          {
-            "id": "list_devices",
-            "template": "list_devices",
-            "navigation": {
-              "next": "add_devices"
-            }
-          },
-          {
-            "id": "add_devices",
-            "template": "add_devices"
-          }
-        ]
+      "id": "N_SERIES",
+      "class": "lock",
+      "capabilities": [
+        "measure_battery",
+        "measure_temperature",
+        "measure_mileage",
+        "measure_consumed_today",
+        "measure_health",
+        "measure_is_charging",
+        "measure_is_home",
+        "locked"
+      ],
+      "energy": {
+        "batteries": ["INTERNAL"]
       },
-      {
-        "id": "U-Series",
-        "class": "lock",
-        "capabilities": [
-          "measure_battery",
-          "measure_temperature",
-          "measure_mileage",
-          "measure_consumed_today",
-          "measure_health",
-          "measure_is_charging",
-          "measure_is_home",
-          "locked"
-        ],
-        "energy": {
-          "batteries": ["INTERNAL"]
-        },
-        "name": {
-          "en": "Niu U-Series",
-          "nl": "Niu U-Series"
-        },
-        "images": {
-          "large": "drivers/U-Series/assets/images/large.jpg",
-          "small": "drivers/U-Series/assets/images/small.jpg"
-        },
-        "pair": [
-          {
-            "id": "list_devices",
-            "template": "list_devices",
-            "navigation": {
-              "next": "add_devices"
-            }
-          },
-          {
-            "id": "add_devices",
-            "template": "add_devices"
+      "name": {
+        "en": "Niu N(QI)-Series",
+        "nl": "Niu N(QI)-Series"
+      },
+      "images": {
+        "large": "drivers/N_SERIES/assets/images/large.jpg",
+        "small": "drivers/N_SERIES/assets/images/small.jpg"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
           }
-        ]
-      }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    },
+    {
+      "id": "U_SERIES",
+      "class": "lock",
+      "capabilities": [
+        "measure_battery",
+        "measure_temperature",
+        "measure_mileage",
+        "measure_consumed_today",
+        "measure_health",
+        "measure_is_charging",
+        "measure_is_home",
+        "locked"
+      ],
+      "energy": {
+        "batteries": ["INTERNAL"]
+      },
+      "name": {
+        "en": "Niu U(QI)-Series",
+        "nl": "Niu U(QI)-Series"
+      },
+      "images": {
+        "large": "drivers/U_SERIES/assets/images/large.jpg",
+        "small": "drivers/U_SERIES/assets/images/small.jpg"
+      },
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    }
   ],
   "capabilities": {
     "measure_mileage": {
