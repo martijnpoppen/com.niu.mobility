@@ -1,7 +1,5 @@
 const Homey = require('homey');
-const { DEVICE_TYPES } = require('../../constants/device_types');
 
-let _devices = [];
 let _niuClient = undefined;
 
 module.exports = class mainDriver extends Homey.Driver {
@@ -11,19 +9,19 @@ module.exports = class mainDriver extends Homey.Driver {
     }
 
     deviceType() {
-        return DEVICE_TYPES.OTHER
+        return 'other';
     }
 
-    async onPairListDevices( data, callback ) {
+    async onPairListDevices() {
         _niuClient = this.homey.app.getNiuClient();
 
-        _devices = await this.onDeviceListRequest(this.id, _niuClient);
+        const _devices = await this.onDeviceListRequest(this.id, _niuClient);
 
         this.homey.app.log(`[Driver] ${this.id} - Found new devices:`, _devices);
         if(_devices && _devices.length) {
             return _devices;
         } else {
-            return new Error('No devices found. Check the login status of this app inside app-settings');
+            throw new Error('No vehicles found. Check the login status of this app inside app-settings');
         }
     }
 
@@ -43,14 +41,15 @@ module.exports = class mainDriver extends Homey.Driver {
 
             this.homey.app.log(`[Driver] ${driverId} - pairedDriverDevices`, pairedDriverDevices);
 
-            const results = deviceList.filter(device => !pairedDriverDevices.includes(device.sn))
+            const results = deviceList.filter(device => !pairedDriverDevices.includes(device.sn) && device.vehicleTypeId.startsWith(deviceType))
                 .map((d, i) => ({ 
                     name: d.type, 
                     data: {
                         name: d.type, 
                         index: i, 
                         id: `${d.sn}-${d.frameNo}`, 
-                        device_sn: d.sn
+                        device_sn: d.sn,
+                        type: d.vehicleTypeId
                 }  
             }));
 

@@ -81,8 +81,8 @@
         "batteries": ["INTERNAL"]
       },
       "name": {
-        "en": "Niu M(QI)-Series",
-        "nl": "Niu M(QI)-Series"
+        "en": "Niu M-Series (MQI)",
+        "nl": "Niu M-Series (MQI)"
       },
       "images": {
         "large": "drivers/M_SERIES/assets/images/large.jpg",
@@ -119,8 +119,8 @@
         "batteries": ["INTERNAL"]
       },
       "name": {
-        "en": "Niu N(QI)-Series",
-        "nl": "Niu N(QI)-Series"
+        "en": "Niu N-Series (NQI)",
+        "nl": "Niu N-Series (NQI)"
       },
       "images": {
         "large": "drivers/N_SERIES/assets/images/large.jpg",
@@ -157,8 +157,8 @@
         "batteries": ["INTERNAL"]
       },
       "name": {
-        "en": "Niu U(QI)-Series",
-        "nl": "Niu U(QI)-Series"
+        "en": "Niu U-Series (UQI)",
+        "nl": "Niu U-Series (UQI)"
       },
       "images": {
         "large": "drivers/U_SERIES/assets/images/large.jpg",
