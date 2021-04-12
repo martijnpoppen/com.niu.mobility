@@ -17,7 +17,7 @@
     "nl": ["scooter", "electric", "emission", "green", "rental", "sharing"]
   },
   "category": ["localization"],
-  "permissions": [],
+  "permissions": ["homey:manager:api", "homey:manager:geolocation"],
   "images": {
     "large": "/assets/images/large.jpg",
     "small": "/assets/images/small.jpg"
@@ -65,19 +65,28 @@
   },
   "drivers": [
     {
-      "id": "N1S",
-      "class": "other",
-      "capabilities": [],
+      "id": "N-Series",
+      "class": "lock",
+      "capabilities": [
+        "measure_battery",
+        "measure_temperature",
+        "measure_mileage",
+        "measure_consumed_today",
+        "measure_health",
+        "measure_is_charging",
+        "measure_is_home",
+        "locked"
+      ],
       "energy": {
         "batteries": ["INTERNAL"]
       },
       "name": {
-        "en": "Niu N1S ",
-        "nl": "Niu N1S "
+        "en": "Niu N-Series",
+        "nl": "Niu N-Series"
       },
       "images": {
-        "large": "drivers/N1S/assets/images/large.jpg",
-        "small": "drivers/N1S/assets/images/small.jpg"
+        "large": "drivers/N-Series/assets/images/large.jpg",
+        "small": "drivers/N-Series/assets/images/small.jpg"
       },
       "pair": [
         {
@@ -92,6 +101,280 @@
           "template": "add_devices"
         }
       ]
+    },
+    {
+        "id": "M-Series",
+        "class": "lock",
+        "capabilities": [
+          "measure_battery",
+          "measure_temperature",
+          "measure_mileage",
+          "measure_consumed_today",
+          "measure_health",
+          "measure_is_charging",
+          "measure_is_home",
+          "locked"
+        ],
+        "energy": {
+          "batteries": ["INTERNAL"]
+        },
+        "name": {
+          "en": "Niu M-Series",
+          "nl": "Niu M-Series"
+        },
+        "images": {
+          "large": "drivers/M-Series/assets/images/large.jpg",
+          "small": "drivers/M-Series/assets/images/small.jpg"
+        },
+        "pair": [
+          {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+              "next": "add_devices"
+            }
+          },
+          {
+            "id": "add_devices",
+            "template": "add_devices"
+          }
+        ]
+      },
+      {
+        "id": "U-Series",
+        "class": "lock",
+        "capabilities": [
+          "measure_battery",
+          "measure_temperature",
+          "measure_mileage",
+          "measure_consumed_today",
+          "measure_health",
+          "measure_is_charging",
+          "measure_is_home",
+          "locked"
+        ],
+        "energy": {
+          "batteries": ["INTERNAL"]
+        },
+        "name": {
+          "en": "Niu U-Series",
+          "nl": "Niu U-Series"
+        },
+        "images": {
+          "large": "drivers/U-Series/assets/images/large.jpg",
+          "small": "drivers/U-Series/assets/images/small.jpg"
+        },
+        "pair": [
+          {
+            "id": "list_devices",
+            "template": "list_devices",
+            "navigation": {
+              "next": "add_devices"
+            }
+          },
+          {
+            "id": "add_devices",
+            "template": "add_devices"
+          }
+        ]
+      }
+  ],
+  "capabilities": {
+    "measure_mileage": {
+      "type": "number",
+      "title": {
+        "en": "Remaining mileage",
+        "nl": "Resterende afstand"
+      },
+      "units": {
+        "en": "KM",
+        "nl": "KM"
+      },
+      "insights": true,
+      "desc": {
+        "en": "Remaining mileage in KM",
+        "nl": "Resterende afstand in KM"
+      },
+      "chartType": "spline",
+      "decimals": 2,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/mileage.svg",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "measure_mileage_changed",
+            "title": {
+              "en": "The remaining mileage has changed",
+              "nl": "De resterende afstand is veranderd"
+            },
+            "tokens": [
+              {
+                "name": "measure_mileage",
+                "title": {
+                  "en": "Remaining mileage",
+                  "nl": "Resterende afstand"
+                },
+                "type": "number",
+                "example": 99
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "measure_consumed_today": {
+      "type": "number",
+      "title": {
+        "en": "Energy consumed Today",
+        "nl": "Energieverbruik vandaag"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "insights": true,
+      "desc": {
+        "en": "Energy consumed today in %",
+        "nl": "Energieverbruik vandaag in %"
+      },
+      "chartType": "spline",
+      "decimals": 2,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/battery-half.svg",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "measure_consumed_today_changed",
+            "title": {
+              "en": "Todays energy consumption has changed",
+              "nl": "Vandaag energieverbruik is veranderd"
+            },
+            "tokens": [
+              {
+                "name": "measure_consumed_today",
+                "title": {
+                  "en": "Energy consumed Today",
+                  "nl": "Energieverbruik vandaag"
+                },
+                "type": "number",
+                "example": 99
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "measure_health": {
+      "type": "number",
+      "title": {
+        "en": "Battery Score",
+        "nl": "Batterij Score"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "insights": true,
+      "desc": {
+        "en": "Battery score in %",
+        "nl": "Batterij score in %"
+      },
+      "chartType": "spline",
+      "decimals": 2,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/award-fill.svg",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "measure_health_changed",
+            "title": {
+              "en": "Battery score has changed",
+              "nl": "Batterij score is veranderd"
+            },
+            "tokens": [
+              {
+                "name": "measure_health",
+                "title": {
+                  "en": "Battery score",
+                  "nl": "Batterij score"
+                },
+                "type": "number",
+                "example": 99
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "measure_is_charging": {
+      "type": "boolean",
+      "title": {
+        "en": "Is Charging",
+        "nl": "Opladen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/battery-charging.svg",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "measure_is_charging_changed",
+            "title": {
+              "en": "Charging has changed",
+              "nl": "Opladen is veranderd"
+            },
+            "tokens": [
+              {
+                "name": "measure_is_charging",
+                "title": {
+                  "en": "Is Charging",
+                  "nl": "Opladen"
+                },
+                "type": "boolean"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "measure_is_home": {
+      "type": "boolean",
+      "title": {
+        "en": "Is vehicle at home",
+        "nl": "Is voertuig thuis"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/house-door.svg",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "measure_is_home_changed",
+            "title": {
+              "en": "Is vehicle at home changed",
+              "nl": "Is voertuig thuis is veranderd"
+            },
+            "tokens": [
+              {
+                "name": "measure_is_home",
+                "title": {
+                  "en": "Is vehicle at home",
+                  "nl": "Is voertuig thuis"
+                },
+                "type": "boolean"
+              }
+            ]
+          }
+        ]
+      }
     }
-  ]
+  }
 }
