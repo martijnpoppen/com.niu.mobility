@@ -43,13 +43,13 @@
   },
   "author": {
     "name": "Martijn Poppen",
-    "email": "martijn@martijnpoppen.nl"
+    "email": "niu@martijnpoppen.nl"
   },
   "contributors": {
     "developers": [
       {
         "name": "Martijn Poppen",
-        "email": "martijn@martijnpoppen.nl"
+        "email": "niu@martijnpoppen.nl"
       }
     ],
     "translators": [
@@ -67,11 +67,11 @@
     }
   },
   "bugs": {
-    "url": "https://community.athom.com/t/app-eufy-security/44921"
+    "url": "https://community.athom.com/t/app-niu/46185"
   },
-  "source": "https://github.com/martijnpoppen/com.eufylife.security",
-  "homeyCommunityTopicId": 44921,
-  "support": "https://community.athom.com/t/app-eufy-security/44921",
+  "source": "https://github.com/martijnpoppen/com.niu.mobility",
+  "homeyCommunityTopicId": 46185,
+  "support": "https://community.athom.com/t/app-niu/46185",
   "api": {
     "login": {
       "method": "put",
