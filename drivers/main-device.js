@@ -1,21 +1,26 @@
 const Homey = require('homey');
 const { sleep, calcCrow } = require('../lib/helpers');
-
-let _niuClient = undefined;
+const POLL_INTERVAL = 1000 * 600; // 10 minutes
 
 module.exports = class mainDevice extends Homey.Device {
     async onInit() {
 		this.homey.app.log('[Device] - init =>', this.getName());
         this.homey.app.setDevices(this);
 
-        _niuClient = this.homey.app.getNiuClient();
+        this._niuClient = this.homey.app.getNiuClient();
 
         await this.checkCapabilities();
+        await this.setCapabilityValues();
 
         this.registerCapabilityListener('locked', this.onCapability_locked.bind(this));
 
-        await this.setCapabilityValues();
-        await this.setAvailable();
+        this.onPollInterval = setInterval(this.setCapabilityValues.bind(this), POLL_INTERVAL);
+    }
+
+    onDeleted() {
+        if( this.onPollInterval ) {
+          clearInterval(this.onPollInterval);
+        }
     }
 
     async checkCapabilities() {
@@ -50,8 +55,8 @@ module.exports = class mainDevice extends Homey.Device {
         this.homey.app.log(`[Device] ${this.getName()} - setCapabilityValues`);
 
         try {    
-            const getBatteryInfo = await _niuClient.getBatteryInfo({sn: device_sn});
-            const getMotorInfo = await _niuClient.getMotorInfo({sn: device_sn});
+            const getBatteryInfo = await this._niuClient.getBatteryInfo({sn: device_sn});
+            const getMotorInfo = await this._niuClient.getMotorInfo({sn: device_sn});
             const {batteryCharging, temperature, energyConsumedTody, gradeBattery} = getBatteryInfo.batteries.compartmentA;
             const {lockStatus, isCharging, estimatedMileage, postion} = getMotorInfo;
 
@@ -66,7 +71,9 @@ module.exports = class mainDevice extends Homey.Device {
             await this.setCapabilityValue('measure_is_charging', isCharging === 1);
             await this.setCapabilityValue('locked', lockStatus === 1);
             await this.setLocation(postion);
+            await this.setAvailable();
         } catch (error) {
+            this.setUnavailable(err)
             this.homey.app.log(error);
         }
     }

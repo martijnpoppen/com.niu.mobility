@@ -11,18 +11,10 @@ let _devices = [];
 class App extends Homey.App {
   log() {
     console.log.bind(this, "[log]").apply(this, arguments);
-
-    // if(this.appSettings && this.appSettings.SET_DEBUG) {
-    //     return log.info.apply(log, arguments)
-    // }
   }
 
   error() {
     console.error.bind(this, "[error]").apply(this, arguments);
-
-    // if(this.appSettings && this.appSettings.SET_DEBUG) {
-    //     return log.info.apply(log, arguments)
-    // }
   }
 
   // -------------------- INIT ----------------------
