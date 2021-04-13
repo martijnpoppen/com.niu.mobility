@@ -1,6 +1,6 @@
 {
   "id": "com.niu.mobility",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#df001f",
@@ -34,7 +34,6 @@
     "localization"
   ],
   "permissions": [
-    "homey:manager:api",
     "homey:manager:geolocation"
   ],
   "images": {
