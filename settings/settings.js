@@ -1,5 +1,5 @@
 function onHomeyReady(Homey) {
-    const _settingsKey = `com.niu.settings`;
+    const _settingsKey = `com.niu.mobility.settings`;
 
     const initializeSettings = function (err, data) {
         if (err || !data) {

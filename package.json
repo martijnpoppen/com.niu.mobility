@@ -1,12 +1,12 @@
 {
-    "name": "com.niu",
-    "version": "0.0.1",
-    "main": "app.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/martijnpoppen/com.eufylife.security"
+  "name": "com.niu.mobility",
+  "version": "1.0.2",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martijnpoppen/com.niu.mobility"
     },
-    "dependencies": {
-        "got": "^11.8.2"
-    }
+  "dependencies": {
+    "got": "^11.8.2"
+  }
 }
