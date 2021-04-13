@@ -16,5 +16,8 @@
   },
   "1.0.5": {
     "en": "Update icons"
+  },
+  "1.0.6": {
+    "en": "Add: update interval setting"
   }
 }
