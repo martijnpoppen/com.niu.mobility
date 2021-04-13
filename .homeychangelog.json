@@ -22,5 +22,11 @@
   },
   "1.0.7": {
     "en": "Update interval settings"
+  },
+  "1.0.8": {
+    "en": "Add new values: Last ride time / Last ride distance / Battery connected / Battery ECU"
+  },
+  "1.0.9": {
+    "en": "Add new values: Last ride time / Last ride distance / Battery connected / Battery ECU"
   }
 }
