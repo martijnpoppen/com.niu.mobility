@@ -51,7 +51,7 @@ class App extends Homey.App {
             await _niuClient.setSessionToken({token: this.appSettings.TOKEN});
         }
 
-        if(!this.appSettings.RESFRESH) {
+        if(!this.appSettings.REFRESH) {
             this.appSettings.REFRESH = 10;
             this.saveSettings();
         }

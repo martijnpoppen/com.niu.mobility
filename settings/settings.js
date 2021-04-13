@@ -10,8 +10,9 @@ function onHomeyReady(Homey) {
         document.getElementById('niu_user').value = data['USERNAME'];
         document.getElementById('niu_pass').value = data['PASSWORD'];
         document.getElementById('niu_token').value = data['TOKEN'];
-        document.getElementById('niu_refresh').value = data['RESFRESH'];
         document.getElementById('niu_countrycode').value = data['COUNTRY_CODE'];
+
+        setInterval(data);
 
         initSave(data);
         initClear(data);
@@ -29,6 +30,15 @@ function onHomeyReady(Homey) {
     Homey.ready();
 }
 
+function setInterval(data) {
+    const refresh = document.getElementById('niu_refresh');
+    for(let i = 0; i < refresh.options.length; i++) {
+        if(refresh.options[i].value == `${data['REFRESH']}`) {
+            refresh.options[i].selected = true;
+        }
+    }
+}
+
 function initSave(_settings) {
     document.getElementById('save').addEventListener('click', function (e) {
         const error = document.getElementById('error');
@@ -39,14 +49,14 @@ function initSave(_settings) {
         const USERNAME = document.getElementById('niu_user').value;
         const PASSWORD = document.getElementById('niu_pass').value;
         const TOKEN = document.getElementById('niu_token').value;
-        const RESFRESH = document.getElementById('niu_refresh').value;
+        const REFRESH = parseInt(document.getElementById('niu_refresh').value);
         const COUNTRY_CODE = document.getElementById('niu_countrycode').value;
 
         const settings = {
             USERNAME,
             PASSWORD,
             TOKEN,
-            RESFRESH,
+            REFRESH,
             COUNTRY_CODE
         }
 
@@ -94,7 +104,6 @@ function initClear(_settings) {
         document.getElementById('niu_user').value = "";
         document.getElementById('niu_pass').value = "";
         document.getElementById('niu_token').value = "";
-        document.getElementById('niu_refresh').value = 5;
         document.getElementById('niu_countrycode').value = "";
 
         const settings = {
@@ -104,6 +113,8 @@ function initClear(_settings) {
             REFRESH: 30,
             COUNTRY_CODE: ""
         }
+
+        setInterval(settings);
 
         Homey.api('PUT', '/settings', settings, function (err, result) {
             if (err) {

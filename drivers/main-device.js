@@ -5,7 +5,6 @@ module.exports = class mainDevice extends Homey.Device {
     async onInit() {
 		this.homey.app.log('[Device] - init =>', this.getName());
         this.homey.app.setDevices(this);
-        const { REFRESH } = this.homey.app.getSettings();
 
         this._niuClient = this.homey.app.getNiuClient();
 
@@ -14,8 +13,13 @@ module.exports = class mainDevice extends Homey.Device {
 
         this.registerCapabilityListener('locked', this.onCapability_locked.bind(this));
 
-        this.homey.app.log(`[Device] ${this.getName()} - onPollInterval =>`, REFRESH);
-        this.onPollInterval = setInterval(this.setCapabilityValues.bind(this), 1000 * (REFRESH * 60));
+        await sleep(2000);
+        const { REFRESH } = this.homey.app.getSettings();
+        const REFRESH_INTERVAL = 1000 * (REFRESH * 60);
+        
+        this.homey.app.log(`[Device] ${this.getName()} - onPollInterval =>`, REFRESH, REFRESH_INTERVAL);
+
+        this.onPollInterval = setInterval(this.setCapabilityValues.bind(this), REFRESH_INTERVAL);
     }
 
     onDeleted() {

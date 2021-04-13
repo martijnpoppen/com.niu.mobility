@@ -34,10 +34,23 @@
             <input id="niu_token" type="text" value="" disabled />
         </div>
         <div class="field row">
-            <p style="color: red;">(Right now it's unknown if Niu will block you if you use a low interval)</p>
             <label for="niu_refresh">Update interval (app restart needed)</label>
-            <input id="niu_refresh" type="number" min="5" max="60" />
+            <select id="niu_refresh">
+                <option value="5">5 minutes</option>
+                <option value="10">10 minutes</option>
+                <option value="15">15 minutes</option>
+                <option value="20">20 minutes</option>
+                <option value="25">25 minutes</option>
+                <option value="30">30 minutes</option>
+                <option value="35">35 minutes</option>
+                <option value="40">40 minutes</option>
+                <option value="45">45 minutes</option>
+                <option value="50">50 minutes</option>
+                <option value="55">55 minutes</option>
+                <option value="60">60 minutes</option>
+            </select>
         </div>
+        <p style="color: red;">(Right now it's unknown if Niu will block you if you use a low interval)</p>
     </fieldset>
     <p id="error" style="color: red;"></p>
     <p id="loading" style="color: #0000FF;"></p>
