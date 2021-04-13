@@ -69,7 +69,7 @@ module.exports = class mainDevice extends Homey.Device {
             await this.setCapabilityValue('measure_consumed_today', parseInt(energyConsumedTody));
             await this.setCapabilityValue('measure_health', parseInt(gradeBattery));
             await this.setCapabilityValue('measure_is_charging', isCharging === 1);
-            await this.setCapabilityValue('locked', lockStatus === 1);
+            await this.setCapabilityValue('locked', lockStatus === 0);
             await this.setLocation(postion);
             await this.setAvailable();
         } catch (error) {
