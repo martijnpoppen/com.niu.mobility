@@ -1,5 +1,5 @@
 const Homey = require('homey');
-const { sleep, calcCrow } = require('../lib/helpers');
+const { sleep, calcCrow, formatSecondsToMinutes } = require('../lib/helpers');
 
 module.exports = class mainDevice extends Homey.Device {
     async onInit() {
@@ -62,8 +62,9 @@ module.exports = class mainDevice extends Homey.Device {
         try {    
             const getBatteryInfo = await this._niuClient.getBatteryInfo({sn: device_sn});
             const getMotorInfo = await this._niuClient.getMotorInfo({sn: device_sn});
+
             const {batteryCharging, temperature, energyConsumedTody, gradeBattery} = getBatteryInfo.batteries.compartmentA;
-            const {lockStatus, isCharging, estimatedMileage, postion} = getMotorInfo;
+            const {lockStatus, isConnected, isCharging, estimatedMileage, postion, centreCtrlBattery, lastTrack} = getMotorInfo;
 
             this.homey.app.log(`[Device] ${this.getName()} - getBatteryInfo =>`, getBatteryInfo);
             this.homey.app.log(`[Device] ${this.getName()} - getMotorInfo =>`, getMotorInfo);
@@ -73,12 +74,16 @@ module.exports = class mainDevice extends Homey.Device {
             await this.setCapabilityValue('measure_mileage', parseInt(estimatedMileage));
             await this.setCapabilityValue('measure_consumed_today', parseInt(energyConsumedTody));
             await this.setCapabilityValue('measure_health', parseInt(gradeBattery));
-            await this.setCapabilityValue('measure_is_charging', isCharging === 1);
-            await this.setCapabilityValue('locked', lockStatus === 0);
+            await this.setCapabilityValue('measure_ecu', parseInt(centreCtrlBattery));
+            await this.setCapabilityValue('measure_is_charging', !!isCharging);
+            await this.setCapabilityValue('measure_is_connected', !!isConnected);
+            await this.setCapabilityValue('locked', !lockStatus);
             await this.setLocation(postion);
+            await this.setLastRide(lastTrack);
+
             await this.setAvailable();
         } catch (error) {
-            this.setUnavailable(err)
+            this.setUnavailable(error)
             this.homey.app.log(error);
         }
     }
@@ -91,6 +96,19 @@ module.exports = class mainDevice extends Homey.Device {
 
             this.homey.app.log(`[Device] ${this.getName()} - setLocation =>`, setLocation);
             await this.setCapabilityValue('measure_is_home', setLocation <= 1);
+        } catch (error) {
+            this.homey.app.log(error);
+        }
+    }
+
+    async setLastRide(lastTrack) {
+        try {
+            let { ridingTime, distance } = lastTrack;
+            ridingTime = formatSecondsToMinutes(ridingTime);
+            distance = (distance / 1000);
+
+            await this.setCapabilityValue('measure_last_ride_time', ridingTime);
+            await this.setCapabilityValue('measure_last_ride_distance', distance);
         } catch (error) {
             this.homey.app.log(error);
         }

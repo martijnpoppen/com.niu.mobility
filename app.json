@@ -19,7 +19,14 @@
       "emission",
       "green",
       "rental",
-      "sharing"
+      "sharing",
+      "charge",
+      "charging",
+      "power",
+      "energy",
+      "mobility",
+      "travel",
+      "transport"
     ],
     "nl": [
       "scooter",
@@ -27,7 +34,14 @@
       "emission",
       "green",
       "rental",
-      "sharing"
+      "sharing",
+      "charge",
+      "charging",
+      "power",
+      "energy",
+      "mobility",
+      "travel",
+      "transport"
     ]
   },
   "category": [
@@ -95,8 +109,12 @@
         "measure_mileage",
         "measure_consumed_today",
         "measure_health",
+        "measure_ecu",
         "measure_is_charging",
+        "measure_is_connected",
         "measure_is_home",
+        "measure_last_ride_time",
+        "measure_last_ride_distance",
         "locked"
       ],
       "energy": {
@@ -135,8 +153,12 @@
         "measure_mileage",
         "measure_consumed_today",
         "measure_health",
+        "measure_ecu",
         "measure_is_charging",
+        "measure_is_connected",
         "measure_is_home",
+        "measure_last_ride_time",
+        "measure_last_ride_distance",
         "locked"
       ],
       "energy": {
@@ -175,8 +197,12 @@
         "measure_mileage",
         "measure_consumed_today",
         "measure_health",
+        "measure_ecu",
         "measure_is_charging",
+        "measure_is_connected",
         "measure_is_home",
+        "measure_last_ride_time",
+        "measure_last_ride_distance",
         "locked"
       ],
       "energy": {
@@ -340,6 +366,82 @@
         ]
       }
     },
+    "measure_ecu": {
+      "type": "number",
+      "title": {
+        "en": "Battery ECU",
+        "nl": "Batterij ECU"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "insights": true,
+      "desc": {
+        "en": "Battery ECU in %",
+        "nl": "Batterij ECU in %"
+      },
+      "chartType": "spline",
+      "decimals": 2,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/battery-full.svg",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "measure_ecu_changed",
+            "title": {
+              "en": "Battery ECU has changed",
+              "nl": "Batterij ECU is veranderd"
+            },
+            "tokens": [
+              {
+                "name": "measure_ecu",
+                "title": {
+                  "en": "Battery ECU",
+                  "nl": "Batterij ECU"
+                },
+                "type": "number",
+                "example": 99
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "measure_is_connected": {
+      "type": "boolean",
+      "title": {
+        "en": "Battery connected",
+        "nl": "Batterij aangesloten"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/file-bar-graph-fill.svg",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "measure_is_connected_changed",
+            "title": {
+              "en": "Battery (dis)connected",
+              "nl": "Batterij aangesloten/verwijderd"
+            },
+            "tokens": [
+              {
+                "name": "measure_is_connected",
+                "title": {
+                  "en": "Battery connected",
+                  "nl": "Batterij aangesloten"
+                },
+                "type": "boolean"
+              }
+            ]
+          }
+        ]
+      }
+    },
     "measure_is_charging": {
       "type": "boolean",
       "title": {
@@ -387,8 +489,8 @@
           {
             "id": "measure_is_home_changed",
             "title": {
-              "en": "Is vehicle at home changed",
-              "nl": "Is voertuig thuis is veranderd"
+              "en": "Is vehicle (not) at home",
+              "nl": "Is voertuig (niet) thuis"
             },
             "tokens": [
               {
@@ -398,6 +500,94 @@
                   "nl": "Is voertuig thuis"
                 },
                 "type": "boolean"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "measure_last_ride_time": {
+      "type": "number",
+      "title": {
+        "en": "Last ride time",
+        "nl": "Laatste rit tijd"
+      },
+      "units": {
+        "en": "min",
+        "nl": "min"
+      },
+      "insights": true,
+      "desc": {
+        "en": "Last ride time in minutes",
+        "nl": "Laatste rit tijd in minuten"
+      },
+      "chartType": "spline",
+      "decimals": 2,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/stopwatch.svg",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "measure_last_ride_time_changed",
+            "title": {
+              "en": "Laatste ride time has changed",
+              "nl": "Laatste rit tijd is veranderd"
+            },
+            "tokens": [
+              {
+                "name": "measure_last_ride_time",
+                "title": {
+                  "en": "Last ride time",
+                  "nl": "Laatste rit tijd"
+                },
+                "type": "number",
+                "example": 99
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "measure_last_ride_distance": {
+      "type": "number",
+      "title": {
+        "en": "Last ride distance",
+        "nl": "Laatste rit afstand"
+      },
+      "units": {
+        "en": "KM",
+        "nl": "KM"
+      },
+      "insights": true,
+      "desc": {
+        "en": "Last ride distance in minutes",
+        "nl": "Laatste rit afstand in minuten"
+      },
+      "chartType": "spline",
+      "decimals": 1,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/chevron-double-right.svg",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "measure_last_ride_distance_changed",
+            "title": {
+              "en": "Laatste ride distance has changed",
+              "nl": "Laatste rit afstand is veranderd"
+            },
+            "tokens": [
+              {
+                "name": "measure_last_ride_distance",
+                "title": {
+                  "en": "Last ride distance",
+                  "nl": "Laatste rit afstand"
+                },
+                "type": "number",
+                "example": 99
               }
             ]
           }
