@@ -50,6 +50,11 @@ class App extends Homey.App {
             this.log("initSettings - setSessionToken", this.appSettings.TOKEN);
             await _niuClient.setSessionToken({token: this.appSettings.TOKEN});
         }
+
+        if(!this.appSettings.RESFRESH) {
+            this.appSettings.REFRESH = 10;
+            this.saveSettings();
+        }
         
 
         return;
@@ -60,7 +65,8 @@ class App extends Homey.App {
         USERNAME: "",
         PASSWORD: "",
         COUNTRY_CODE: "",
-        TOKEN: ""
+        TOKEN: "",
+        REFRESH: 30
       });
     } catch (err) {
       this.error(err);

@@ -30,8 +30,13 @@
             <input id="niu_countrycode" type="text" value="" />
         </div>
         <div class="field row">
-            <label for="niu_token">Token (will be filled after login</label>
+            <label for="niu_token">Token (will be filled after login)</label>
             <input id="niu_token" type="text" value="" disabled />
+        </div>
+        <div class="field row">
+            <p style="color: red;">(Right now it's unknown if Niu will block you if you use a low interval)</p>
+            <label for="niu_refresh">Update interval (app restart needed)</label>
+            <input id="niu_refresh" type="number" min="5" max="60" />
         </div>
     </fieldset>
     <p id="error" style="color: red;"></p>

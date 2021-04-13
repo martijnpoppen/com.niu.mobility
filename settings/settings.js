@@ -10,6 +10,7 @@ function onHomeyReady(Homey) {
         document.getElementById('niu_user').value = data['USERNAME'];
         document.getElementById('niu_pass').value = data['PASSWORD'];
         document.getElementById('niu_token').value = data['TOKEN'];
+        document.getElementById('niu_refresh').value = data['RESFRESH'];
         document.getElementById('niu_countrycode').value = data['COUNTRY_CODE'];
 
         initSave(data);
@@ -38,12 +39,14 @@ function initSave(_settings) {
         const USERNAME = document.getElementById('niu_user').value;
         const PASSWORD = document.getElementById('niu_pass').value;
         const TOKEN = document.getElementById('niu_token').value;
+        const RESFRESH = document.getElementById('niu_refresh').value;
         const COUNTRY_CODE = document.getElementById('niu_countrycode').value;
 
         const settings = {
             USERNAME,
             PASSWORD,
             TOKEN,
+            RESFRESH,
             COUNTRY_CODE
         }
 
@@ -91,12 +94,14 @@ function initClear(_settings) {
         document.getElementById('niu_user').value = "";
         document.getElementById('niu_pass').value = "";
         document.getElementById('niu_token').value = "";
+        document.getElementById('niu_refresh').value = 5;
         document.getElementById('niu_countrycode').value = "";
 
         const settings = {
             USERNAME: "",
             PASSWORD: "",
             TOKEN: "",
+            REFRESH: 30,
             COUNTRY_CODE: ""
         }
 

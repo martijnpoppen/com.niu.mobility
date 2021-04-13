@@ -1,11 +1,11 @@
 const Homey = require('homey');
 const { sleep, calcCrow } = require('../lib/helpers');
-const POLL_INTERVAL = 1000 * 600; // 10 minutes
 
 module.exports = class mainDevice extends Homey.Device {
     async onInit() {
 		this.homey.app.log('[Device] - init =>', this.getName());
         this.homey.app.setDevices(this);
+        const { REFRESH } = this.homey.app.getSettings();
 
         this._niuClient = this.homey.app.getNiuClient();
 
@@ -14,7 +14,8 @@ module.exports = class mainDevice extends Homey.Device {
 
         this.registerCapabilityListener('locked', this.onCapability_locked.bind(this));
 
-        this.onPollInterval = setInterval(this.setCapabilityValues.bind(this), POLL_INTERVAL);
+        this.homey.app.log(`[Device] ${this.getName()} - onPollInterval =>`, REFRESH);
+        this.onPollInterval = setInterval(this.setCapabilityValues.bind(this), 1000 * (REFRESH * 60));
     }
 
     onDeleted() {
