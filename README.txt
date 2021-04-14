@@ -12,6 +12,11 @@ Current features:
 - Energy consumed Today
 - Is scooter locked
 - Is scooter home (based on Homey's location)
+- Last ride time 
+- Last ride distance 
+- Battery connected 
+- Battery ECU
+- Set update interval in app settings.
 
 Support: 
 - M Series

@@ -1,6 +1,6 @@
 # NIU
 
-Adds Homey support for NIU Scooters
+Adds support for NIU Scooters
 
 Retrieve information from you NIU scooter. 
 Get notification when a value has changed.
@@ -14,13 +14,18 @@ Current features:
 - Energy consumed Today
 - Is scooter locked
 - Is scooter home (based on Homey's location)
+- Last ride time 
+- Last ride distance 
+- Battery connected 
+- Battery ECU
+- Set update interval in app settings.
 
 Support: 
 - M Series
 - N Series 
 - U Series
 
-Is your scoooter not listed?
+Is your scooter not listed?
 Feel free to ask in the community and I'll add it.
 
 How to use:
