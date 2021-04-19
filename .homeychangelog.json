@@ -31,5 +31,8 @@
   },
   "1.0.10": {
     "en": "Add new values: Last ride time / Last ride distance / Battery connected / Battery ECU"
+  },
+  "1.0.11": {
+    "en": "Remove device filter on pair"
   }
 }
