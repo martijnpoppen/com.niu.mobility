@@ -37,5 +37,11 @@
   },
   "1.0.12": {
     "en": "Update settings template"
+  },
+  "1.0.13": {
+    "en": "FIX: outdated token"
+  },
+  "1.0.14": {
+    "en": "FIX: refresh token"
   }
 }
