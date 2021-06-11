@@ -69,11 +69,12 @@ function initSave(_settings) {
 
         if(USERNAME && PASSWORD) {
             Homey.api('PUT', '/login', settings, function (err, result) {
-                if (err) {
-                    error.innerHTML = err;
+                console.log(result, err)
+                if (result && result.error) {
+                    error.innerHTML = result.error.message;
                     loading.innerHTML = "";
                     button.disabled = false;
-                    return Homey.alert(err);
+                    return Homey.alert(result.error.message);
                 } else {
                     button.disabled = false;
                     loading.innerHTML = "";

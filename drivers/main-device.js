@@ -63,6 +63,11 @@ module.exports = class mainDevice extends Homey.Device {
             const getBatteryInfo = await this._niuClient.getBatteryInfo({sn: device_sn});
             const getMotorInfo = await this._niuClient.getMotorInfo({sn: device_sn});
 
+            if(getBatteryInfo.error || getMotorInfo.error) {
+                this.homey.app.refreshToken();
+                return;
+            }
+
             const {batteryCharging, temperature, energyConsumedTody, gradeBattery} = getBatteryInfo.batteries.compartmentA;
             const {lockStatus, isConnected, isCharging, estimatedMileage, postion, centreCtrlBattery, lastTrack} = getMotorInfo;
 

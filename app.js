@@ -103,6 +103,8 @@ class App extends Homey.App {
 
       if(token) {
           settings.TOKEN = token;
+      } else {
+          return new Error(token.error)
       }
 
       this.appSettings = settings;
@@ -141,6 +143,10 @@ class App extends Homey.App {
 
   getDevices() {
       return _devices;
+  }
+
+  refreshToken() {
+      this.niuLogin(this.appSettings);
   }
 }
 
