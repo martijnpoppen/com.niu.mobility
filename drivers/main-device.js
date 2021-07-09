@@ -90,6 +90,7 @@ module.exports = class mainDevice extends Homey.Device {
         } catch (error) {
             this.setUnavailable(error)
             this.homey.app.log(error);
+            this.homey.app.refreshToken();
         }
     }
 
