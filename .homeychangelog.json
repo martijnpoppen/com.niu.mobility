@@ -43,5 +43,8 @@
   },
   "1.0.14": {
     "en": "FIX: refresh token"
+  },
+  "1.0.15": {
+    "en": "FIX: refreshToken on error"
   }
 }
