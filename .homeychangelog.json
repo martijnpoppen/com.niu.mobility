@@ -46,5 +46,8 @@
   },
   "1.0.15": {
     "en": "FIX: refreshToken on error"
+  },
+  "1.1.0": {
+    "en": "NEW: update API to Axios instead of GOT"
   }
 }
