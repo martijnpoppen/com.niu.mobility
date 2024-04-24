@@ -5,8 +5,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/martijnpoppen/com.niu.mobility"
-    },
+  },
   "dependencies": {
-    "got": "^11.8.2"
+    "axios": "^1.4.0"
   }
 }
