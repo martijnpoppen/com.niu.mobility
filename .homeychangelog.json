@@ -49,5 +49,8 @@
   },
   "1.1.0": {
     "en": "NEW: update API to Axios instead of GOT"
+  },
+  "1.2.0": {
+    "en": "NEW: implement new login API"
   }
 }

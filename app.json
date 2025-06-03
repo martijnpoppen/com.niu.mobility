@@ -1,6 +1,7 @@
 {
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.niu.mobility",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#df001f",
@@ -104,7 +105,6 @@
   },
   "drivers": [
     {
-      "id": "M_SERIES",
       "class": "lock",
       "capabilities": [
         "measure_battery",
@@ -145,10 +145,10 @@
           "id": "add_devices",
           "template": "add_devices"
         }
-      ]
+      ],
+      "id": "M_SERIES"
     },
     {
-      "id": "N_SERIES",
       "class": "lock",
       "capabilities": [
         "measure_battery",
@@ -189,10 +189,10 @@
           "id": "add_devices",
           "template": "add_devices"
         }
-      ]
+      ],
+      "id": "N_SERIES"
     },
     {
-      "id": "U_SERIES",
       "class": "lock",
       "capabilities": [
         "measure_battery",
@@ -233,54 +233,11 @@
           "id": "add_devices",
           "template": "add_devices"
         }
-      ]
+      ],
+      "id": "U_SERIES"
     }
   ],
   "capabilities": {
-    "measure_mileage": {
-      "type": "number",
-      "title": {
-        "en": "Remaining mileage",
-        "nl": "Resterende afstand"
-      },
-      "units": {
-        "en": "KM",
-        "nl": "KM"
-      },
-      "insights": true,
-      "desc": {
-        "en": "Remaining mileage in KM",
-        "nl": "Resterende afstand in KM"
-      },
-      "chartType": "spline",
-      "decimals": 2,
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "icon": "assets/icons/mileage.svg",
-      "$flow": {
-        "triggers": [
-          {
-            "id": "measure_mileage_changed",
-            "title": {
-              "en": "The remaining mileage has changed",
-              "nl": "De resterende afstand is veranderd"
-            },
-            "tokens": [
-              {
-                "name": "measure_mileage",
-                "title": {
-                  "en": "Remaining mileage",
-                  "nl": "Resterende afstand"
-                },
-                "type": "number",
-                "example": 99
-              }
-            ]
-          }
-        ]
-      }
-    },
     "measure_consumed_today": {
       "type": "number",
       "title": {
@@ -301,73 +258,7 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "assets/icons/battery-half.svg",
-      "$flow": {
-        "triggers": [
-          {
-            "id": "measure_consumed_today_changed",
-            "title": {
-              "en": "Todays energy consumption has changed",
-              "nl": "Vandaag energieverbruik is veranderd"
-            },
-            "tokens": [
-              {
-                "name": "measure_consumed_today",
-                "title": {
-                  "en": "Energy consumed Today",
-                  "nl": "Energieverbruik vandaag"
-                },
-                "type": "number",
-                "example": 99
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "measure_health": {
-      "type": "number",
-      "title": {
-        "en": "Battery Score",
-        "nl": "Batterij Score"
-      },
-      "units": {
-        "en": "%",
-        "nl": "%"
-      },
-      "insights": true,
-      "desc": {
-        "en": "Battery score in %",
-        "nl": "Batterij score in %"
-      },
-      "chartType": "spline",
-      "decimals": 2,
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "icon": "assets/icons/award-fill.svg",
-      "$flow": {
-        "triggers": [
-          {
-            "id": "measure_health_changed",
-            "title": {
-              "en": "Battery score has changed",
-              "nl": "Batterij score is veranderd"
-            },
-            "tokens": [
-              {
-                "name": "measure_health",
-                "title": {
-                  "en": "Battery score",
-                  "nl": "Batterij score"
-                },
-                "type": "number",
-                "example": 99
-              }
-            ]
-          }
-        ]
-      }
+      "icon": "assets/icons/battery-half.svg"
     },
     "measure_ecu": {
       "type": "number",
@@ -389,61 +280,29 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "assets/icons/battery-full.svg",
-      "$flow": {
-        "triggers": [
-          {
-            "id": "measure_ecu_changed",
-            "title": {
-              "en": "Battery ECU has changed",
-              "nl": "Batterij ECU is veranderd"
-            },
-            "tokens": [
-              {
-                "name": "measure_ecu",
-                "title": {
-                  "en": "Battery ECU",
-                  "nl": "Batterij ECU"
-                },
-                "type": "number",
-                "example": 99
-              }
-            ]
-          }
-        ]
-      }
+      "icon": "assets/icons/battery-full.svg"
     },
-    "measure_is_connected": {
-      "type": "boolean",
+    "measure_health": {
+      "type": "number",
       "title": {
-        "en": "Battery connected",
-        "nl": "Batterij aangesloten"
+        "en": "Battery Score",
+        "nl": "Batterij Score"
       },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "insights": true,
+      "desc": {
+        "en": "Battery score in %",
+        "nl": "Batterij score in %"
+      },
+      "chartType": "spline",
+      "decimals": 2,
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "assets/icons/file-bar-graph-fill.svg",
-      "$flow": {
-        "triggers": [
-          {
-            "id": "measure_is_connected_changed",
-            "title": {
-              "en": "Battery (dis)connected",
-              "nl": "Batterij aangesloten/verwijderd"
-            },
-            "tokens": [
-              {
-                "name": "measure_is_connected",
-                "title": {
-                  "en": "Battery connected",
-                  "nl": "Batterij aangesloten"
-                },
-                "type": "boolean"
-              }
-            ]
-          }
-        ]
-      }
+      "icon": "assets/icons/award-fill.svg"
     },
     "measure_is_charging": {
       "type": "boolean",
@@ -454,28 +313,18 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "assets/icons/battery-charging.svg",
-      "$flow": {
-        "triggers": [
-          {
-            "id": "measure_is_charging_changed",
-            "title": {
-              "en": "Charging has changed",
-              "nl": "Opladen is veranderd"
-            },
-            "tokens": [
-              {
-                "name": "measure_is_charging",
-                "title": {
-                  "en": "Is Charging",
-                  "nl": "Opladen"
-                },
-                "type": "boolean"
-              }
-            ]
-          }
-        ]
-      }
+      "icon": "assets/icons/battery-charging.svg"
+    },
+    "measure_is_connected": {
+      "type": "boolean",
+      "title": {
+        "en": "Battery connected",
+        "nl": "Batterij aangesloten"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/file-bar-graph-fill.svg"
     },
     "measure_is_home": {
       "type": "boolean",
@@ -486,72 +335,7 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "assets/icons/house-door.svg",
-      "$flow": {
-        "triggers": [
-          {
-            "id": "measure_is_home_changed",
-            "title": {
-              "en": "Is vehicle (not) at home",
-              "nl": "Is voertuig (niet) thuis"
-            },
-            "tokens": [
-              {
-                "name": "measure_is_home",
-                "title": {
-                  "en": "Is vehicle at home",
-                  "nl": "Is voertuig thuis"
-                },
-                "type": "boolean"
-              }
-            ]
-          }
-        ]
-      }
-    },
-    "measure_last_ride_time": {
-      "type": "number",
-      "title": {
-        "en": "Last ride time",
-        "nl": "Laatste rit tijd"
-      },
-      "units": {
-        "en": "min",
-        "nl": "min"
-      },
-      "insights": true,
-      "desc": {
-        "en": "Last ride time in minutes",
-        "nl": "Laatste rit tijd in minuten"
-      },
-      "chartType": "spline",
-      "decimals": 2,
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "icon": "assets/icons/stopwatch.svg",
-      "$flow": {
-        "triggers": [
-          {
-            "id": "measure_last_ride_time_changed",
-            "title": {
-              "en": "Laatste ride time has changed",
-              "nl": "Laatste rit tijd is veranderd"
-            },
-            "tokens": [
-              {
-                "name": "measure_last_ride_time",
-                "title": {
-                  "en": "Last ride time",
-                  "nl": "Laatste rit tijd"
-                },
-                "type": "number",
-                "example": 99
-              }
-            ]
-          }
-        ]
-      }
+      "icon": "assets/icons/house-door.svg"
     },
     "measure_last_ride_distance": {
       "type": "number",
@@ -573,29 +357,51 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "assets/icons/chevron-double-right.svg",
-      "$flow": {
-        "triggers": [
-          {
-            "id": "measure_last_ride_distance_changed",
-            "title": {
-              "en": "Laatste ride distance has changed",
-              "nl": "Laatste rit afstand is veranderd"
-            },
-            "tokens": [
-              {
-                "name": "measure_last_ride_distance",
-                "title": {
-                  "en": "Last ride distance",
-                  "nl": "Laatste rit afstand"
-                },
-                "type": "number",
-                "example": 99
-              }
-            ]
-          }
-        ]
-      }
+      "icon": "assets/icons/chevron-double-right.svg"
+    },
+    "measure_last_ride_time": {
+      "type": "number",
+      "title": {
+        "en": "Last ride time",
+        "nl": "Laatste rit tijd"
+      },
+      "units": {
+        "en": "min",
+        "nl": "min"
+      },
+      "insights": true,
+      "desc": {
+        "en": "Last ride time in minutes",
+        "nl": "Laatste rit tijd in minuten"
+      },
+      "chartType": "spline",
+      "decimals": 2,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/stopwatch.svg"
+    },
+    "measure_mileage": {
+      "type": "number",
+      "title": {
+        "en": "Remaining mileage",
+        "nl": "Resterende afstand"
+      },
+      "units": {
+        "en": "KM",
+        "nl": "KM"
+      },
+      "insights": true,
+      "desc": {
+        "en": "Remaining mileage in KM",
+        "nl": "Resterende afstand in KM"
+      },
+      "chartType": "spline",
+      "decimals": 2,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/mileage.svg"
     }
   }
 }
