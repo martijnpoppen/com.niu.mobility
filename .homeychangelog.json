@@ -52,5 +52,8 @@
   },
   "1.2.0": {
     "en": "NEW: implement new login API"
+  },
+  "1.2.1": {
+    "en": "NEW: change device class from 'lock' to 'scooter'"
   }
 }
