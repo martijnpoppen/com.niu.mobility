@@ -1,0 +1,44 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Remaining mileage",
+    "nl": "Resterende afstand"
+  },
+  "units": {
+    "en": "KM",
+    "nl": "KM"
+  },
+  "insights": true,
+  "desc": {
+    "en": "Remaining mileage in KM",
+    "nl": "Resterende afstand in KM"
+  },
+  "chartType": "spline",
+  "decimals": 2,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "assets/icons/mileage.svg",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_mileage_changed",
+        "title": {
+          "en": "The remaining mileage has changed",
+          "nl": "De resterende afstand is veranderd"
+        },
+        "tokens": [
+          {
+            "name": "measure_mileage",
+            "title": {
+              "en": "Remaining mileage",
+              "nl": "Resterende afstand"
+            },
+            "type": "number",
+            "example": 99
+          }
+        ]
+      }
+    ]
+  }
+}

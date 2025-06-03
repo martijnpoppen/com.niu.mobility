@@ -1,0 +1,105 @@
+{
+  "id": "com.niu.mobility",
+  "version": "1.1.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#df001f",
+  "name": {
+    "en": "Niu",
+    "nl": "Niu"
+  },
+  "description": {
+    "en": "World’s #1 Smart Electric Scooter.",
+    "nl": "World’s #1 Smart Electric Scooter."
+  },
+  "tags": {
+    "en": [
+      "scooter",
+      "electric",
+      "emission",
+      "green",
+      "rental",
+      "sharing",
+      "charge",
+      "charging",
+      "power",
+      "energy",
+      "mobility",
+      "travel",
+      "transport"
+    ],
+    "nl": [
+      "scooter",
+      "electric",
+      "emission",
+      "green",
+      "rental",
+      "sharing",
+      "charge",
+      "charging",
+      "power",
+      "energy",
+      "mobility",
+      "travel",
+      "transport"
+    ]
+  },
+  "category": [
+    "localization"
+  ],
+  "permissions": [
+    "homey:manager:geolocation"
+  ],
+  "images": {
+    "large": "/assets/images/large.jpg",
+    "small": "/assets/images/small.jpg"
+  },
+  "author": {
+    "name": "Martijn Poppen",
+    "email": "niu@martijnpoppen.nl"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Martijn Poppen",
+        "email": "niu@martijnpoppen.nl"
+      },
+      {
+        "name": "Robbert Vis (Vehicle icons)",
+        "email": "niu@martijnpoppen.nl"
+      }
+    ],
+    "translators": [
+      {
+        "name": "Martijn Poppen",
+        "email": "niu@martijnpoppen.nl"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "martijnpoppen"
+      },
+      "bunq": {
+        "username": "martijnpoppen"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://community.athom.com/t/app-niu/46185"
+  },
+  "source": "https://github.com/martijnpoppen/com.niu.mobility",
+  "homeyCommunityTopicId": 46185,
+  "support": "https://community.athom.com/t/app-niu/46185",
+  "api": {
+    "login": {
+      "method": "put",
+      "path": "/login/"
+    },
+    "settings": {
+      "method": "put",
+      "path": "/settings/"
+    }
+  }
+}

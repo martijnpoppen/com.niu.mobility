@@ -1,0 +1,44 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Battery Score",
+    "nl": "Batterij Score"
+  },
+  "units": {
+    "en": "%",
+    "nl": "%"
+  },
+  "insights": true,
+  "desc": {
+    "en": "Battery score in %",
+    "nl": "Batterij score in %"
+  },
+  "chartType": "spline",
+  "decimals": 2,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "assets/icons/award-fill.svg",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_health_changed",
+        "title": {
+          "en": "Battery score has changed",
+          "nl": "Batterij score is veranderd"
+        },
+        "tokens": [
+          {
+            "name": "measure_health",
+            "title": {
+              "en": "Battery score",
+              "nl": "Batterij score"
+            },
+            "type": "number",
+            "example": 99
+          }
+        ]
+      }
+    ]
+  }
+}

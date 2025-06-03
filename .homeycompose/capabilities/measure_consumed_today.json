@@ -1,0 +1,44 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Energy consumed Today",
+    "nl": "Energieverbruik vandaag"
+  },
+  "units": {
+    "en": "%",
+    "nl": "%"
+  },
+  "insights": true,
+  "desc": {
+    "en": "Energy consumed today in %",
+    "nl": "Energieverbruik vandaag in %"
+  },
+  "chartType": "spline",
+  "decimals": 2,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "assets/icons/battery-half.svg",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_consumed_today_changed",
+        "title": {
+          "en": "Todays energy consumption has changed",
+          "nl": "Vandaag energieverbruik is veranderd"
+        },
+        "tokens": [
+          {
+            "name": "measure_consumed_today",
+            "title": {
+              "en": "Energy consumed Today",
+              "nl": "Energieverbruik vandaag"
+            },
+            "type": "number",
+            "example": 99
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Last ride time",
+    "nl": "Laatste rit tijd"
+  },
+  "units": {
+    "en": "min",
+    "nl": "min"
+  },
+  "insights": true,
+  "desc": {
+    "en": "Last ride time in minutes",
+    "nl": "Laatste rit tijd in minuten"
+  },
+  "chartType": "spline",
+  "decimals": 2,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "assets/icons/stopwatch.svg",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_last_ride_time_changed",
+        "title": {
+          "en": "Laatste ride time has changed",
+          "nl": "Laatste rit tijd is veranderd"
+        },
+        "tokens": [
+          {
+            "name": "measure_last_ride_time",
+            "title": {
+              "en": "Last ride time",
+              "nl": "Laatste rit tijd"
+            },
+            "type": "number",
+            "example": 99
+          }
+        ]
+      }
+    ]
+  }
+}

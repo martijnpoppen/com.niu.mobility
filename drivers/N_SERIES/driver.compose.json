@@ -1,0 +1,43 @@
+{
+  "class": "lock",
+  "capabilities": [
+    "measure_battery",
+    "measure_temperature",
+    "measure_mileage",
+    "measure_consumed_today",
+    "measure_health",
+    "measure_ecu",
+    "measure_is_charging",
+    "measure_is_connected",
+    "measure_is_home",
+    "measure_last_ride_time",
+    "measure_last_ride_distance",
+    "locked"
+  ],
+  "energy": {
+    "batteries": [
+      "INTERNAL"
+    ]
+  },
+  "name": {
+    "en": "Niu N-Series (NQI)",
+    "nl": "Niu N-Series (NQI)"
+  },
+  "images": {
+    "large": "drivers/N_SERIES/assets/images/large.jpg",
+    "small": "drivers/N_SERIES/assets/images/small.jpg"
+  },
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ]
+}

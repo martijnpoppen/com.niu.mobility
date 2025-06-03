@@ -1,0 +1,44 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Last ride distance",
+    "nl": "Laatste rit afstand"
+  },
+  "units": {
+    "en": "KM",
+    "nl": "KM"
+  },
+  "insights": true,
+  "desc": {
+    "en": "Last ride distance in minutes",
+    "nl": "Laatste rit afstand in minuten"
+  },
+  "chartType": "spline",
+  "decimals": 1,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "assets/icons/chevron-double-right.svg",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_last_ride_distance_changed",
+        "title": {
+          "en": "Laatste ride distance has changed",
+          "nl": "Laatste rit afstand is veranderd"
+        },
+        "tokens": [
+          {
+            "name": "measure_last_ride_distance",
+            "title": {
+              "en": "Last ride distance",
+              "nl": "Laatste rit afstand"
+            },
+            "type": "number",
+            "example": 99
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Battery connected",
+    "nl": "Batterij aangesloten"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "assets/icons/file-bar-graph-fill.svg",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_is_connected_changed",
+        "title": {
+          "en": "Battery (dis)connected",
+          "nl": "Batterij aangesloten/verwijderd"
+        },
+        "tokens": [
+          {
+            "name": "measure_is_connected",
+            "title": {
+              "en": "Battery connected",
+              "nl": "Batterij aangesloten"
+            },
+            "type": "boolean"
+          }
+        ]
+      }
+    ]
+  }
+}

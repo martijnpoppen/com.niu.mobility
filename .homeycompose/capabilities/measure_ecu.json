@@ -1,0 +1,44 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Battery ECU",
+    "nl": "Batterij ECU"
+  },
+  "units": {
+    "en": "%",
+    "nl": "%"
+  },
+  "insights": true,
+  "desc": {
+    "en": "Battery ECU in %",
+    "nl": "Batterij ECU in %"
+  },
+  "chartType": "spline",
+  "decimals": 2,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "assets/icons/battery-full.svg",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "measure_ecu_changed",
+        "title": {
+          "en": "Battery ECU has changed",
+          "nl": "Batterij ECU is veranderd"
+        },
+        "tokens": [
+          {
+            "name": "measure_ecu",
+            "title": {
+              "en": "Battery ECU",
+              "nl": "Batterij ECU"
+            },
+            "type": "number",
+            "example": 99
+          }
+        ]
+      }
+    ]
+  }
+}
