@@ -104,7 +104,7 @@ class App extends Homey.App {
       if(token) {
           settings.TOKEN = token;
       } else {
-          return new Error(token.error)
+          return new Error('niuLogin - Error logging in to Niu')
       }
 
       this.appSettings = settings;

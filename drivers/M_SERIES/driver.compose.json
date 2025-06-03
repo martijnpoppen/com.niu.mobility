@@ -1,5 +1,5 @@
 {
-  "class": "lock",
+  "class": "scooter",
   "capabilities": [
     "measure_battery",
     "measure_temperature",

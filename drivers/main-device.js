@@ -6,6 +6,11 @@ module.exports = class mainDevice extends Homey.Device {
 		this.homey.app.log('[Device] - init =>', this.getName());
         this.homey.app.setDevices(this);
 
+        if(this.getClass() !== 'scooter') {
+            this.homey.app.log(`[Device] ${this.getName()} - Device class is not 'scooter', skipping initialization.`);
+            this.setClass('scooter');
+        }
+
         this._niuClient = this.homey.app.getNiuClient();
 
         await this.checkCapabilities();
