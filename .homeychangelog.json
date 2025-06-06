@@ -55,5 +55,8 @@
   },
   "1.2.1": {
     "en": "NEW: change device class from 'lock' to 'scooter'"
+  },
+  "1.2.2": {
+    "en": "FIX: login"
   }
 }
